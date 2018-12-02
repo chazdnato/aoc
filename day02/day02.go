@@ -66,7 +66,7 @@ func SolutionOne() {
 func SolutionTwo() {
 	boxIDs := SliceOfStrings()
 
-	matchIDs := make(map[string]bool)
+	matchIDs := make(map[string]int)
 
 	for _, ID := range boxIDs {
 		uniqIDs := make(map[string]string)
@@ -79,11 +79,11 @@ func SolutionTwo() {
 
 		// range over all possible IDs and see if there are two that match
 		for x := range uniqIDs {
-			if matchIDs[x] {
+			if _, ok := matchIDs[x]; ok {
 				fmt.Printf("Answer: %v\n", x)
 				break
 			}
-			matchIDs[x] = true
+			matchIDs[x]++
 		}
 	}
 }
