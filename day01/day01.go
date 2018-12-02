@@ -11,9 +11,9 @@ import (
 )
 
 // HandleError is a generic error handler
-func HandleError(err error) {
+func HandleError(location string, err error) {
 	if err != nil {
-		fmt.Print(err)
+		fmt.Printf("ERR: %s\t %v\n", location, err)
 		os.Exit(2)
 	}
 }
@@ -21,17 +21,17 @@ func HandleError(err error) {
 // SliceOfNumbers returns a slice of numbers from the input file
 func SliceOfNumbers() []int {
 	file, err := os.Open("day01/input.txt")
-	HandleError(err)
+	HandleError("Opening file", err)
 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
+	s := bufio.NewScanner(file)
 
 	var numbers []int
 
-	for scanner.Scan() {
-		number := scanner.Text()
+	for s.Scan() {
+		number := s.Text()
 		num, err := strconv.Atoi(number)
-		HandleError(err)
+		HandleError("Converting string to integer", err)
 		numbers = append(numbers, num)
 	}
 	return numbers
@@ -59,6 +59,7 @@ func SolutionTwo() {
 	for {
 		for _, num := range numbers {
 			sum += num
+			// could also do: if numberMap[sum] > 0 { ... }
 			if _, ok := numberMap[sum]; ok {
 				highestNumber = true
 				break
