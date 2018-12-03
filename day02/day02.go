@@ -4,39 +4,14 @@ package day02
 // cat input.txt | xargs | sed -e 's/^+//' | bc
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+
+	"github.com/chazdnato/aoc/sidwtrw"
 )
-
-// HandleError is a generic error handler
-func HandleError(location string, err error) {
-	if err != nil {
-		fmt.Printf("ERR: %s\t %v\n", location, err)
-		os.Exit(2)
-	}
-}
-
-// SliceOfStrings returns a slice of strings from the input file
-func SliceOfStrings() []string {
-	file, err := os.Open("day02/input.txt")
-	HandleError("Opening file", err)
-	defer file.Close()
-
-	s := bufio.NewScanner(file)
-
-	var strings []string
-
-	for s.Scan() {
-		word := s.Text()
-		strings = append(strings, word)
-	}
-	return strings
-}
 
 // SolutionOne is the first solution for the day
 func SolutionOne() {
-	boxIDs := SliceOfStrings()
+	boxIDs := sidwtrw.SliceOfStrings("day02/input.txt")
 	twos, threes := 0, 0
 	for _, ID := range boxIDs {
 		charMap := make(map[rune]int)
@@ -64,7 +39,7 @@ func SolutionOne() {
 
 // SolutionTwo is the second solution for the day
 func SolutionTwo() {
-	boxIDs := SliceOfStrings()
+	boxIDs := sidwtrw.SliceOfStrings("day02/input.txt")
 
 	matchIDs := make(map[string]int)
 
