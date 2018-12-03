@@ -12,4 +12,5 @@ func main() {
 	day02.SolutionOne()
 	day02.SolutionTwo()
 	day03.SolutionOne()
+	day03.SolutionTwo()
 }

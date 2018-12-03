@@ -1,8 +1,5 @@
 package day02
 
-// This was done in bash as follows:
-// cat input.txt | xargs | sed -e 's/^+//' | bc
-
 import (
 	"fmt"
 
