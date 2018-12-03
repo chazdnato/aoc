@@ -5,8 +5,16 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"regexp"
 	"strconv"
 )
+
+// ConvertStrtoInt will convert a string to an int
+func ConvertStrtoInt(str string) int {
+	num, err := strconv.Atoi(str)
+	HandleError("Converting string to integer", err)
+	return num
+}
 
 // HandleError is a generic error handler
 func HandleError(location string, err error) {
@@ -14,6 +22,23 @@ func HandleError(location string, err error) {
 		fmt.Printf("ERR: %s\t %v\n", location, err)
 		os.Exit(2)
 	}
+}
+
+// ParseRegex will use a regex to split a string into a map of entries
+// stolen blatantly from https://stackoverflow.com/a/39635221
+func ParseRegex(regEx, toParse string) (parsedMap map[string]string) {
+
+	var compRegEx = regexp.MustCompile(regEx)
+	match := compRegEx.FindStringSubmatch(toParse)
+
+	parsedMap = make(map[string]string)
+	for i, name := range compRegEx.SubexpNames() {
+		if i == 0 {
+			name = "_ALL_"
+		}
+		parsedMap[name] = match[i]
+	}
+	return
 }
 
 // SliceOfInts returns a slice of ints from the input file
@@ -28,9 +53,7 @@ func SliceOfInts(filePath string) []int {
 
 	for s.Scan() {
 		number := s.Text()
-		num, err := strconv.Atoi(number)
-		HandleError("Converting string to integer", err)
-		numbers = append(numbers, num)
+		numbers = append(numbers, ConvertStrtoInt(number))
 	}
 	return numbers
 }
