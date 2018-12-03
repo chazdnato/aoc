@@ -16,7 +16,7 @@ func HandleError(location string, err error) {
 	}
 }
 
-// SliceOfNumbers returns a slice of ints from the input file
+// SliceOfInts returns a slice of ints from the input file
 func SliceOfInts(filePath string) []int {
 	file, err := os.Open(filePath)
 	HandleError("Opening file", err)
