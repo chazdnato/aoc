@@ -9,8 +9,8 @@ import (
 	"strconv"
 )
 
-// ConvertStrtoInt will convert a string to an int
-func ConvertStrtoInt(str string) int {
+// StrToInt will convert a string to an int
+func StrToInt(str string) int {
 	num, err := strconv.Atoi(str)
 	HandleError("Converting string to integer", err)
 	return num
@@ -53,7 +53,7 @@ func SliceOfInts(filePath string) []int {
 
 	for s.Scan() {
 		number := s.Text()
-		numbers = append(numbers, ConvertStrtoInt(number))
+		numbers = append(numbers, StrToInt(number))
 	}
 	return numbers
 }

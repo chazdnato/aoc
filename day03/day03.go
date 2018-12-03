@@ -19,10 +19,10 @@ func SolutionOne() {
 	for _, claim := range claims {
 		claimMap := sidwtrw.ParseRegex(regex, claim)
 
-		xcoord := sidwtrw.ConvertStrtoInt(claimMap["x"])
-		xrange := sidwtrw.ConvertStrtoInt(claimMap["w"])
-		ycoord := sidwtrw.ConvertStrtoInt(claimMap["y"])
-		yrange := sidwtrw.ConvertStrtoInt(claimMap["h"])
+		xcoord := sidwtrw.StrToInt(claimMap["x"])
+		xrange := sidwtrw.StrToInt(claimMap["w"])
+		ycoord := sidwtrw.StrToInt(claimMap["y"])
+		yrange := sidwtrw.StrToInt(claimMap["h"])
 		for x := xcoord; x < xcoord+xrange; x++ {
 			for y := ycoord; y < ycoord+yrange; y++ {
 				fabric[x][y]++
@@ -58,11 +58,11 @@ func SolutionTwo() {
 	for _, claim := range claims {
 		claimMap := sidwtrw.ParseRegex(regex, claim)
 
-		xcoord := sidwtrw.ConvertStrtoInt(claimMap["x"])
-		xrange := sidwtrw.ConvertStrtoInt(claimMap["w"])
-		ycoord := sidwtrw.ConvertStrtoInt(claimMap["y"])
-		yrange := sidwtrw.ConvertStrtoInt(claimMap["h"])
-		entry := sidwtrw.ConvertStrtoInt(claimMap["entry"])
+		xcoord := sidwtrw.StrToInt(claimMap["x"])
+		xrange := sidwtrw.StrToInt(claimMap["w"])
+		ycoord := sidwtrw.StrToInt(claimMap["y"])
+		yrange := sidwtrw.StrToInt(claimMap["h"])
+		entry := sidwtrw.StrToInt(claimMap["entry"])
 		for x := xcoord; x < xcoord+xrange; x++ {
 			for y := ycoord; y < ycoord+yrange; y++ {
 				// claimed entry
