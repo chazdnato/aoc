@@ -25,7 +25,7 @@ func SolutionOne() {
 		yrange := sidwtrw.ConvertStrtoInt(claimMap["h"])
 		for x := xcoord; x < xcoord+xrange; x++ {
 			for y := ycoord; y < ycoord+yrange; y++ {
-				fabric[y][x]++
+				fabric[x][y]++
 			}
 		}
 
@@ -66,9 +66,9 @@ func SolutionTwo() {
 		for x := xcoord; x < xcoord+xrange; x++ {
 			for y := ycoord; y < ycoord+yrange; y++ {
 				// claimed entry
-				if fabric[y][x] != 0 {
+				if fabric[x][y] != 0 {
 					// invalidate previous claim and current entry
-					trackUnclaimed[fabric[y][x]] = -1
+					trackUnclaimed[fabric[x][y]] = -1
 					trackUnclaimed[entry] = -1
 				} else {
 					// only claim if it's never been falsified
@@ -77,7 +77,7 @@ func SolutionTwo() {
 					}
 				}
 				// mark your territory
-				fabric[y][x] = entry
+				fabric[x][y] = entry
 			}
 		}
 	}
