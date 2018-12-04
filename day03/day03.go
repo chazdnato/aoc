@@ -15,7 +15,7 @@ func SolutionOne() {
 	// parse line like '#62 @ 301,425: 27x25' as
 	// #(62).@.(301),(425):.(27)x(25) where the groups are
 	// entry number, x-coord, y-coord, width, height (entry, x, y, w, h)
-	regex := `#(?P<entry>\d+).@.(?P<x>\d+),(?P<y>\d+):.(?P<w>\d+)x(?P<h>\d+)`
+	regex := `#(?P<entry>\d+) @ (?P<x>\d+),(?P<y>\d+): (?P<w>\d+)x(?P<h>\d+)`
 	for _, claim := range claims {
 		claimMap := sidwtrw.ParseRegex(regex, claim)
 
@@ -54,7 +54,7 @@ func SolutionTwo() {
 	// parse line like '#62 @ 301,425: 27x25' as
 	// #(62).@.(301),(425):.(27)x(25) where the groups are
 	// entry number, x-coord, y-coord, width, height (entry, x, y, w, h)
-	regex := `#(?P<entry>\d+).@.(?P<x>\d+),(?P<y>\d+):.(?P<w>\d+)x(?P<h>\d+)`
+	regex := `#(?P<entry>\d+) @ (?P<x>\d+),(?P<y>\d+): (?P<w>\d+)x(?P<h>\d+)`
 	for _, claim := range claims {
 		claimMap := sidwtrw.ParseRegex(regex, claim)
 
