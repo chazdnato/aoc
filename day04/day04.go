@@ -90,11 +90,8 @@ func SolutionTwo() {
 	guards := populateGuards(shifts)
 
 	// find out which guard slept the most in a specific minute
-	//sg := &guard{total: 0} // sleepiest guard
-	//sm := =-1 // sleepiest minute
 	maxMin := -1
 	maxCount := 0
-
 	sg := &guard{total: 0} // sleepiest guard
 	for _, guard := range guards {
 		for i, count := range guard.minutes {
