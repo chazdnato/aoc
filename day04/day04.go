@@ -13,11 +13,9 @@ type guard struct {
 	minutes [60]int
 }
 
-// SolutionOne is the first solution for the day
-func SolutionOne() {
-	shifts := sidwtrw.SliceOfStrings("day04/input.txt")
-	sort.Strings(shifts)
-	// key is guard number, value is guard struct
+// populateGuards takes slice of guard data and return map of pointers to guard structs
+func populateGuards(shifts []string) map[int]*guard {
+	// key is guard number, value is pointer to guard struct
 	guards := make(map[int]*guard)
 
 	regex := `.+:(?P<min>\d+). (?P<action>\w+) #?(?P<meta>\S+).+`
@@ -51,6 +49,16 @@ func SolutionOne() {
 			}
 		}
 	}
+	return guards
+}
+
+// SolutionOne is the first solution for the day
+func SolutionOne() {
+	shifts := sidwtrw.SliceOfStrings("day04/input.txt")
+	sort.Strings(shifts)
+
+	// key is guard number, value is guard struct
+	guards := populateGuards(shifts)
 
 	// find out which guard slept the most
 	sg := &guard{total: 0} // sleepiest guard
@@ -75,5 +83,29 @@ func SolutionOne() {
 
 // SolutionTwo is the second solution for the day
 func SolutionTwo() {
-	fmt.Printf("Answer: <nil>\n")
+	shifts := sidwtrw.SliceOfStrings("day04/input.txt")
+	sort.Strings(shifts)
+
+	// key is guard number, value is guard struct
+	guards := populateGuards(shifts)
+
+	// find out which guard slept the most in a specific minute
+	//sg := &guard{total: 0} // sleepiest guard
+	//sm := =-1 // sleepiest minute
+	maxMin := -1
+	maxCount := 0
+
+	sg := &guard{total: 0} // sleepiest guard
+	for _, guard := range guards {
+		for i, count := range guard.minutes {
+			if count > maxCount {
+				maxCount = count
+				maxMin = i
+				sg = guard
+			}
+		}
+
+	}
+
+	fmt.Printf("Answer: %d\n", sg.id*maxMin)
 }
