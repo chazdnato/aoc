@@ -7,6 +7,7 @@ import (
 	"github.com/chazdnato/aoc/day02"
 	"github.com/chazdnato/aoc/day03"
 	"github.com/chazdnato/aoc/day04"
+	"github.com/chazdnato/aoc/day05"
 )
 
 func main() {
@@ -22,4 +23,7 @@ func main() {
 	fmt.Println("==== Day 04 ====")
 	day04.SolutionOne()
 	day04.SolutionTwo()
+	fmt.Println("==== Day 05 ====")
+	day05.SolutionOne()
+	day05.SolutionTwo()
 }
