@@ -32,16 +32,17 @@ func reactPolymer(polymer string) string {
 }
 
 // SolutionOne is the first solution for the day
-func SolutionOne() {
+func SolutionOne() int {
 	// just want the single line, aka element 0
 	polymer := sidwtrw.SliceOfStrings("day05/input.txt")[0]
 
 	newPolymer := reactPolymer(polymer)
 	fmt.Printf("Answer: %v\n", len(newPolymer))
+	return len(newPolymer)
 }
 
 // SolutionTwo is the second solution for the day
-func SolutionTwo() {
+func SolutionTwo() int {
 	// just want the single line, aka element 0
 	polymer := sidwtrw.SliceOfStrings("day05/input.txt")[0]
 
@@ -67,4 +68,5 @@ func SolutionTwo() {
 	}
 	// report the shortest length
 	fmt.Printf("Answer: %d\n", shortestPolymerLen)
+	return shortestPolymerLen
 }
