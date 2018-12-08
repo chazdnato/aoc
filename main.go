@@ -26,7 +26,7 @@ func main() {
 	*/
 	fmt.Println("==== Day 06 ====")
 	day06.SolutionOne()
-	//day06.SolutionTwo()
+	day06.SolutionTwo()
 	//fmt.Println("==== Day 07 ====")
 	//day07.SolutionOne()
 	//day07.SolutionTwo()

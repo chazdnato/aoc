@@ -10,7 +10,7 @@ import (
 func SolutionOne() {
 	points := sidwtrw.SliceOfStrings("day06/input.txt")
 	// total "space" size
-	const dx, dy = 400, 400
+	const dx, dy = 356, 356
 	areas := make(map[string]int)
 	infinite := make(map[string]bool)
 
@@ -64,7 +64,31 @@ func SolutionOne() {
 
 // SolutionTwo is the second solution for the day
 func SolutionTwo() {
-	coords := sidwtrw.SliceOfStrings("day06/input_sample1.txt")
+	points := sidwtrw.SliceOfStrings("day06/input.txt")
+	// total "space" size
+	const dx, dy = 356, 356
+	maxDistance := 10000
+	regex := `(?P<xcoord>\d+), (?P<ycoord>\d+)`
 
-	fmt.Printf("Answer: %v\n", coords)
+	totalTrue := 0
+	for x := 0; x < dx; x++ {
+		for y := 0; y < dy; y++ {
+			totalDist := 0
+			for _, point := range points {
+				pointMap := sidwtrw.ParseRegex(regex, point)
+				xcoord := sidwtrw.StrToInt(pointMap["xcoord"])
+				ycoord := sidwtrw.StrToInt(pointMap["ycoord"])
+
+				// Manhattan distance
+				dist := sidwtrw.Abs(xcoord-x) + sidwtrw.Abs(ycoord-y)
+				totalDist += dist
+			}
+
+			if totalDist < maxDistance {
+				totalTrue++
+			}
+		}
+	}
+
+	fmt.Printf("Answer: %v\n", totalTrue)
 }
