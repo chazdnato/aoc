@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chazdnato/aoc/day06"
+	"github.com/chazdnato/aoc/day07"
 )
 
 func main() {
@@ -23,12 +23,12 @@ func main() {
 	fmt.Println("==== Day 05 ====")
 	day05.SolutionOne()
 	day05.SolutionTwo()
-	*/
 	fmt.Println("==== Day 06 ====")
 	day06.SolutionOne()
 	day06.SolutionTwo()
-	//fmt.Println("==== Day 07 ====")
-	//day07.SolutionOne()
+	*/
+	fmt.Println("==== Day 07 ====")
+	day07.SolutionOne()
 	//day07.SolutionTwo()
 
 }
