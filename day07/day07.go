@@ -27,7 +27,6 @@ func indexOf(element string, data []string) int {
 // sortMapKeys will take a map[string][]string
 // and return sorted keys in []string
 func sortMapKeys(m map[string][]string) []string {
-
 	o := make([]string, 0, len(m))
 	for k := range m {
 		o = append(o, k)
@@ -59,10 +58,8 @@ func SolutionOne() {
 
 	// build string
 	stepOrder := ""
-	stepMapisEmpty := false
-
-	// keep going until all empty
-	for !stepMapisEmpty {
+	haveSteps := true
+	for haveSteps {
 		// sort the keys
 		orderedSteps := sortMapKeys(stepMap)
 		for _, step := range orderedSteps {
@@ -78,7 +75,7 @@ func SolutionOne() {
 					}
 					// remove item from key map if it exists
 					if i := indexOf(step, v); i >= 0 {
-						stepMap[k] = remove(stepMap[k], indexOf(step, v))
+						stepMap[k] = remove(stepMap[k], i)
 					}
 				}
 				// remove key from stepMap then start over
@@ -87,12 +84,11 @@ func SolutionOne() {
 			}
 		}
 		if len(stepMap) == 0 {
-			stepMapisEmpty = true
+			haveSteps = false
 		}
 	}
 
 	fmt.Printf("Answer: %v\n", stepOrder)
-
 }
 
 // SolutionTwo is the second solution for the day
