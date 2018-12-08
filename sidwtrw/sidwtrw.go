@@ -9,6 +9,14 @@ import (
 	"strconv"
 )
 
+// Abs will give absolute function for integers
+func Abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
 // StrToInt will convert a string to an int
 func StrToInt(str string) int {
 	num, err := strconv.Atoi(str)

@@ -3,14 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/chazdnato/aoc/day01"
-	"github.com/chazdnato/aoc/day02"
-	"github.com/chazdnato/aoc/day03"
-	"github.com/chazdnato/aoc/day04"
-	"github.com/chazdnato/aoc/day05"
+	"github.com/chazdnato/aoc/day06"
 )
 
 func main() {
+	/* Need not run every solution every time
 	fmt.Println("==== Day 01 ====")
 	day01.SolutionOne()
 	day01.SolutionTwo()
@@ -26,4 +23,12 @@ func main() {
 	fmt.Println("==== Day 05 ====")
 	day05.SolutionOne()
 	day05.SolutionTwo()
+	*/
+	fmt.Println("==== Day 06 ====")
+	day06.SolutionOne()
+	//day06.SolutionTwo()
+	//fmt.Println("==== Day 07 ====")
+	//day07.SolutionOne()
+	//day07.SolutionTwo()
+
 }
