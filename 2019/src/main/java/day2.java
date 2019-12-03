@@ -23,7 +23,7 @@ public class day2 {
 
         // day 1
         int[] day1numbers = numbers.clone();
-        System.out.println("day2, part1 answer: " + runIntCode(day1numbers, 12, 2));
+        System.out.println("day2, part 1 answer: " + runIntCode(day1numbers, 12, 2));
 
         // day 2
         int result = 0;
@@ -51,27 +51,19 @@ public class day2 {
         while (!complete) {
             int command = numbers[offset];
 
-            switch (command) {
-                // add slots 1 and 2 and put answer in 3
-                case 1:
-                    one = numbers[1 + offset];
-                    two = numbers[2 + offset];
-                    answerSlot = numbers[3 + offset];
-                    offset += 4;
-                    numbers[answerSlot] = numbers[one] + numbers[two];
-                    break;
-                // multiply slots 1 and 2 and put answer in 3
-                case 2:
-                    one = numbers[1 + offset]; // noun
-                    two = numbers[2 + offset]; // verb
-                    answerSlot = numbers[3 + offset];
-                    offset += 4;
-                    numbers[answerSlot] = numbers[one] * numbers[two];
-                    break;
-                // done!
-                case 99:
-                    complete = true;
-                    break;
+            if (command == 99) {
+                complete = true;
+            } else {
+                one = numbers[1 + offset];
+                two = numbers[2 + offset];
+                answerSlot = numbers[3 + offset];
+                offset += 4;
+            }
+
+            if (command == 1) {
+                numbers[answerSlot] = numbers[one] + numbers[two];
+            } else if (command == 2) {
+                numbers[answerSlot] = numbers[one] * numbers[two];
             }
         }
         return numbers[0];
