@@ -11,7 +11,7 @@ public class OpcodeComputer {
     }
 
     public int runIntCode(int noun, int verb) {
-        log.println("Running program with noun " + noun + " and verb " + verb);
+//        log.println("Running program with noun " + noun + " and verb " + verb);
         int numbers[] = memory.clone();
 
         numbers[1] = noun;
