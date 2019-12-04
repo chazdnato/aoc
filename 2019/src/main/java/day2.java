@@ -43,28 +43,24 @@ public class day2 {
         numbers[1] = noun;
         numbers[2] = verb;
 
-        boolean complete = false;
         int offset = 0;
         int one = 0;
         int two = 0;
         int answerSlot = 0;
-        while (!complete) {
-            int command = numbers[offset];
-
-            if (command == 99) {
-                complete = true;
-            } else {
+        int command = numbers[offset];
+        while (command != 99) {
                 one = numbers[1 + offset];
                 two = numbers[2 + offset];
                 answerSlot = numbers[3 + offset];
-                offset += 4;
-            }
 
             if (command == 1) {
                 numbers[answerSlot] = numbers[one] + numbers[two];
             } else if (command == 2) {
                 numbers[answerSlot] = numbers[one] * numbers[two];
             }
+            offset += 4;
+            command = numbers[offset];
+
         }
         return numbers[0];
     }
