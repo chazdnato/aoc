@@ -17,19 +17,19 @@ func BenchmarkReactPolymer(b *testing.B) {
 }
 
 func TestSolutionOne(t *testing.T) {
-	os.Chdir("..")
+	_ = os.Chdir("..")
 	answer := SolutionOne()
 	if answer != 11476 {
 		t.Error("Expected: 11476")
 	}
-	os.Chdir("day05")
+	_ = os.Chdir("day05")
 }
 
 func TestSolutionTwo(t *testing.T) {
-	os.Chdir("..")
+	_ = os.Chdir("..")
 	answer := SolutionTwo()
 	if answer != 5446 {
 		t.Error("Expected: 5446")
 	}
-	os.Chdir("day05")
+	_ = os.Chdir("day05")
 }

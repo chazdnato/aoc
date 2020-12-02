@@ -9,5 +9,6 @@ import (
 func main() {
 	fmt.Println("==== Day 01 ====")
 	day01.SolutionOne()
+	day01.SolutionTwo()
 
 }
