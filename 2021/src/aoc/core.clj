@@ -27,8 +27,8 @@
   lein run d01.p1"
   [part]
   (case part
-    "d01.p1" (println (aoc.day-01/part-1 (lines "day-01.txt")))
-    "d01.p2" (println (aoc.day-01/part-2 (read-input "day-01.txt")))
+    "d01.p1" (println (aoc.day-01/part-1 (map parse-int (lines "day-01.txt"))))
+    "d01.p2" (println (aoc.day-01/part-2 (map parse-int (lines "day-01.txt"))))
     "d02.p1" (println (aoc.day-02/part-1 (read-input "day-02.txt")))
     "d02.p2" (println (aoc.day-02/part-2 (read-input "day-02.txt")))
     "d03.p1" (println (aoc.day-03/part-1 (read-input "day-03.txt")))
