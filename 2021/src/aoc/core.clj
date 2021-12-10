@@ -1,25 +1,11 @@
 (ns aoc.core
   (:require [aoc.day-01] [aoc.day-02] [aoc.day-03] [aoc.day-04] [aoc.day-05] [aoc.day-06] [aoc.day-07] [aoc.day-08] [aoc.day-09])
-  (:require [clojure.java.io :refer [resource]])
-  (:require [clojure.string :refer [split-lines]]))
+  (:require [aoc.utils :as u])
+  (:require [clojure.java.io :refer [resource]]))
 
 (defn read-input
   [day]
   (slurp (resource day)))
-
-(defn lines
-  "reads lines from a resource"
-  [name]
-  (->> name
-       (resource)
-       (slurp)
-       (split-lines)))
-
-(defn parse-int
-  "parses string to integer"
-  [number-string]
-  (Integer/parseInt number-string 10))
-
 
 (defn -main
   "Used to dispatch tasks from the command line.
@@ -27,8 +13,8 @@
   lein run d01.p1"
   [part]
   (case part
-    "d01.p1" (println (aoc.day-01/part-1 (map parse-int (lines "day-01.txt"))))
-    "d01.p2" (println (aoc.day-01/part-2 (map parse-int (lines "day-01.txt"))))
+    "d01.p1" (println (aoc.day-01/part-1 (map u/parse-int (u/lines "day-01.txt"))))
+    "d01.p2" (println (aoc.day-01/part-2 (map u/parse-int (u/lines "day-01.txt"))))
     "d02.p1" (println (aoc.day-02/part-1 (read-input "day-02.txt")))
     "d02.p2" (println (aoc.day-02/part-2 (read-input "day-02.txt")))
     "d03.p1" (println (aoc.day-03/part-1 (read-input "day-03.txt")))
