@@ -1,7 +1,6 @@
 (ns aoc.day-02
   (:require
    [clojure.string :as s]
-   [clojure.java.io :as io]
    [aoc.utils :as u]))
 
 ; part 1
