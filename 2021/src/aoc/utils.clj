@@ -8,6 +8,11 @@
   [number-string]
   (Integer/parseInt number-string 10))
 
+(defn parse-long
+  "parses string to long"
+  [number-string]
+  (Long/parseLong number-string 10))
+
 (defn lines
   "reads lines from a resource"
   [name]
