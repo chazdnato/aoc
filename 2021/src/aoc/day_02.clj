@@ -26,7 +26,7 @@
 ; part 2
 (defn parse-command-2 [s]
   (let [[d x] (s/split s #" ")]
-    [d (u/parse-long x)]))
+    [d (u/parse-int x)]))
 
 ; first argument is a collection of state [pos depth aim]
 ; second argument is a collection of commands [dir mag]
