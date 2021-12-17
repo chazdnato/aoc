@@ -1,8 +1,6 @@
 (ns aoc.day-03
   (:require
-   [clojure.string :as s]
-   [clojure.java.io :as io]
-   [aoc.utils :as u]))
+   [clojure.string :as s]))
 
 (defn bin->long [binary]
   (Long/parseLong binary  2))
