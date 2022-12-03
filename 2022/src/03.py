@@ -26,7 +26,7 @@ for sack in input_str.splitlines():
 
   ## PART TWO
   sack_set = set(sack[:])
-  # first sack, add to empty group
+  # first sack or second sack
   if sacks %3 != 0:
     # if there is an intersection ...
     if group & sack_set:
