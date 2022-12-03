@@ -3,12 +3,9 @@ from utils.api import get_input
 input_str = get_input(3)
 
 def item_value(item):
-  # ord minus 96 means a-z = 1-26
-  # ord minus 38 means A-Z = 27-52
-  if ord(item) > 96:
-    return ord(item) - 96
-  else:
-    return ord(item) - 38
+  # ord minus 96 gives a-z = 1-26
+  # ord minus 38 (aka minutes 64 + 26) gives A-Z = 27-52 
+  return ord(item) - 96 if item.islower() else ord(item) - 38
 
 #part 1
 sum = 0
