@@ -3,6 +3,8 @@ from utils.api import get_input
 input_str = get_input(3)
 
 def item_value(item):
+  # ord minus 96 means a-z = 1-26
+  # ord minus 38 means A-Z = 27-52
   if ord(item) > 96:
     return ord(item) - 96
   else:
@@ -23,8 +25,6 @@ for sack in input_str.splitlines():
   compartment_2 = set(sack[size:])
   # extract single string from set
   (item, ) = compartment_1.intersection(compartment_2)
-  # ord minus 96 means a-z = 1-26
-  # ord minus 38 means A-Z = 27-52
   sum += item_value(item)
 
   ## PART TWO
