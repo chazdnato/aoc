@@ -21,22 +21,22 @@ for sack in input_str.splitlines():
   compartment_1 = set(sack[:size])
   compartment_2 = set(sack[size:])
   # extract single string from set
-  (item, ) = compartment_1.intersection(compartment_2)
+  item = compartment_1.intersection(compartment_2).pop()
   sum += item_value(item)
 
   ## PART TWO
   sack_set = set(sack[:])
-  # first sack, add to group
-  if sacks == 1:
-    group = sack_set
-    sacks += 1
-  # second sack, intersection
-  elif sacks == 2:
-    group = group.intersection(sack_set)
+  # first sack, add to empty group
+  if sacks %3 != 0:
+    # if there is an intersection ...
+    if group & sack_set:
+      group = group.intersection(sack_set)
+    else:
+      group = sack_set
     sacks += 1
   # third sack, intersection of set, reset sack/group
-  elif sacks == 3:
-    (item, ) = group.intersection(sack_set)
+  else:
+    item = group.intersection(sack_set).pop()
     sum2 += item_value(item)
     group = set()
     sacks = 1
