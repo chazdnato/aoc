@@ -3,8 +3,8 @@ from utils.api import get_input
 input_str = get_input(4)
 
 def does_contain(segment1, segment2):
-  s1, e1 = [int(x) for x in segment1.split("-")]
-  s2, e2 = [int(x) for x in segment2.split("-")]
+  s1, e1 = map(int, segment1.split("-"))
+  s2, e2 = map(int, segment2.split("-"))
   # s1 contains s2
   if s1 <= s2 and e2 <= e1:
     return True
@@ -14,8 +14,8 @@ def does_contain(segment1, segment2):
   return False
 
 def does_overlap(segment1, segment2):
-  s1, e1 = [int(x) for x in segment1.split("-")]
-  s2, e2 = [int(x) for x in segment2.split("-")]
+  s1, e1 = map(int, segment1.split("-"))
+  s2, e2 = map(int, segment2.split("-"))
   # s1 overlaps s2
   if s1 <= s2 and e1 >= s2 or e1 >= s2 and e1 <= e2:
     return True
