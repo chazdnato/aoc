@@ -31,7 +31,7 @@ def solution(input_str, batch_size):
       break
     # set will have unique characters only
     batch = set(input_str[i:j])
-    # if we have unique a unique, we're good to go
+    # if we have unique set, we're good to go
     if len(batch) == batch_size:
       break
     # next batch
