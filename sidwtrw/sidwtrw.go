@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"reflect"
 	"regexp"
 	"strconv"
 )
@@ -81,4 +82,20 @@ func SliceOfStrings(filePath string) []string {
 		strings = append(strings, word)
 	}
 	return strings
+}
+
+// takes a value and a slice of the same type and tells you if the value is in the slice
+func InSlice[T comparable](v T, s []T) (bool, error) {
+	if reflect.TypeOf(v) != reflect.TypeOf(s[0]) {
+		return false, fmt.Errorf("type mismatch: %T, %T", v, s[0])
+	}
+
+	for _, item := range s {
+		// can use reflect.DeepEqual for 'any' T
+		// if reflect.DeepEqual(item, v) {
+		if item == v {
+			return true, nil
+		}
+	}
+	return false, nil
 }
