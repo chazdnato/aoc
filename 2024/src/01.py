@@ -22,8 +22,12 @@ for line in input_str.splitlines():
 array_a.sort()
 array_b.sort()
 
-total = 0
+abs_distance = 0
+similarity = 0
 for i, x in enumerate(array_a):
-  total += abs(array_b[i] - x)
+  abs_distance += abs(array_b[i] - x)
+  similarity += x * array_b.count(x)
 
-print(total)
+print(abs_distance)
+print()
+print(similarity)
