@@ -1,6 +1,6 @@
 import os
 
-base_link = "https://github.com/chazdnato/aoc/blob/main/2022/src/"
+base_link = "https://github.com/chazdnato/aoc/blob/main/2024/src/"
 
 
 def parse(e):
