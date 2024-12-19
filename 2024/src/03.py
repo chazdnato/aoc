@@ -27,4 +27,33 @@ for match in matches:
         products.append(xx * yy)
 
 # sum the products
-print(sum(products))
+print("part 1: ", sum(products))
+
+# Part 2
+# input_str="xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"
+
+# Regex to match `mul(XX,YY)` or `do()`/`don't()`
+mul_pattern = r"mul\(\d{1,3},\d{1,3}\)|do\(\)|don't\(\)"
+
+# Find all matches
+matches = re.findall(mul_pattern, input_str)
+
+# Process matches with state tracking
+state = True  # Start with "on"
+results = []
+
+for match in matches:
+    if match == "do()":
+        state = True  # Turn matching on
+    elif match == "don't()":
+        state = False  # Turn matching off
+    elif state:  # Only process `mul(XX,YY)` if "on"
+        # Extract XX and YY using a separate regex
+        number_pattern = r"mul\((\d{1,3}),(\d{1,3})\)"
+        match_groups = re.match(number_pattern, match)
+        if match_groups:
+            xx = int(match_groups.group(1))
+            yy = int(match_groups.group(2))
+            results.append(xx * yy)
+
+print("part 2: ", sum(results))
